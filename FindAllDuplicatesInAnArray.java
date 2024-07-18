@@ -9,18 +9,14 @@ public class FindAllDuplicatesInAnArray {
         System.out.println(result);
     }
     public static List<Integer> findDuplicates(int[] nums) {
-        List<Integer> list = new ArrayList<>();
-        int[] hash = new int[Integer.MAX_VALUE];
-        for (int i = 0; i < hash.length; i++) {
-            hash[nums[i]]++;
-        } 
-        for (int i = 0; i < hash.length; i++) {
-            if(hash[i] > 1) {
-                list.add(i);
-            }
+        List<Integer>list=new ArrayList<>();
+        for(int num:nums){
+            nums[Math.abs(num)-1]*=-1;
+            if(nums[Math.abs(num)-1]>0){
+            list.add(Math.abs(num));
         }
-        return list;
-        
+      }  
+      return list;
     }
     
 }
